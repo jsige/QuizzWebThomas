@@ -6,10 +6,13 @@
 package quizz.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -23,10 +26,11 @@ public class Quizz implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
-    private Long quizzId;
-    
-    
+    private String titre;
 
+    @OneToMany(mappedBy = "quizz")
+    private List<Question> questions = new ArrayList<>();
+    
     public Long getId() {
         return id;
     }
@@ -35,12 +39,20 @@ public class Quizz implements Serializable {
         this.id = id;
     }
 
-    public Long getQuizzId() {
-        return quizzId;
+    public String getTitre() {
+        return titre;
     }
 
-    public void setQuizzId(Long quizzId) {
-        this.quizzId = quizzId;
+    public void setTitre(String titre) {
+        this.titre = titre;
+    }
+
+    public List<Question> getQuestions() {
+        return questions;
+    }
+
+    public void setQuestions(List<Question> questions) {
+        this.questions = questions;
     }
 
     @Override

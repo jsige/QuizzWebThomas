@@ -10,6 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -37,8 +39,9 @@ public class Question implements Serializable {
     
     private byte numReponseCorrecte;
     
-    
-    private Long idQuizz;
+    @ManyToOne
+    @JoinColumn(name = "quizz_id")
+    private Quizz quizz;
 
     public Long getId() {
         return id;
@@ -104,12 +107,12 @@ public class Question implements Serializable {
         this.numReponseCorrecte = numReponseCorrecte;
     }
 
-    public Long getIdQuizz() {
-        return idQuizz;
+    public Quizz getQuizz() {
+        return quizz;
     }
 
-    public void setIdQuizz(Long idQuizz) {
-        this.idQuizz = idQuizz;
+    public void setQuizz(Quizz quizz) {
+        this.quizz = quizz;
     }
 
     @Override
