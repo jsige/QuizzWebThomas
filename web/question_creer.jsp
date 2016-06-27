@@ -30,13 +30,13 @@
                 <br />
                 <h3>Ordre de la question : <input name="ordre"></h3>
                 <br />
-                <h3>R1 : <input name="r1"><input type="radio" name="fruit" value="1" ></h3>
+                <h3>R1 : <input name="r1"><input type="radio" name="bonnerep" value="1" ></h3>
                 <br />
-                <h3>R2 : <input name="r2"><input type="radio" name="fruit" value="2" ></h3>
+                <h3>R2 : <input name="r2"><input type="radio" name="bonnerep" value="2" ></h3>
                 <br />
-                <h3>R3 : <input name="r3"><input type="radio" name="fruit" value="3" ></h3>
+                <h3>R3 : <input name="r3"><input type="radio" name="bonnerep" value="3" ></h3>
                 <br />
-                <h3>R4 : <input name="r4"><input type="radio" name="fruit" value="4" ></h3>
+                <h3>R4 : <input name="r4"><input type="radio" name="bonnerep" value="4" ></h3>
                 <br />
                 <br />
 

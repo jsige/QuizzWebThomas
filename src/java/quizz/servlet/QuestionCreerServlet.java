@@ -35,7 +35,7 @@ public class QuestionCreerServlet extends HttpServlet {
         
         Integer ordre = Integer.parseInt(req.getParameter("ordre"));
         
-        Integer numReponse = Integer.parseInt(req.getParameter("fruit"));
+        Integer numReponse = Integer.parseInt(req.getParameter("bonnerep"));
         
         String r1 = req.getParameter("r1");
         String r2 = req.getParameter("r2");
