@@ -15,7 +15,7 @@ import quizz.entity.Question;
  */
 public class QuestionService {
 
-    public List <Question> lister(Long idQuizz) {
+    public List <Question> rechercherParQuizzId(Long idQuizz) {
         QuestionDAO dao = new QuestionDAO();
         
         return dao.rechercherParIdQuizz(idQuizz);
@@ -28,6 +28,12 @@ public class QuestionService {
         
         dao.ajouter(questAAjouter);
         
+    }
+
+    public void questionSuivante(Integer id, Integer ordre) {
+        QuestionDAO dao = new QuestionDAO();
+        Integer nbQuestionQuizz = dao.recupererNbQuestionsParIdQuizz(id, ordre);
+        System.out.println("" + nbQuestionQuizz);
     }
     
     

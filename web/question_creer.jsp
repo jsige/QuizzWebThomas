@@ -24,6 +24,7 @@
         <div class="menu">
             <c:import url="_MENU.jsp" />
         </div>
+            <h1>Ajouter une question au Quizz n°${quizzid}</h1>
         <div class="contenu">
             <form method="post">
                 <h3>Titre de la question : <input name="titre"></h3>

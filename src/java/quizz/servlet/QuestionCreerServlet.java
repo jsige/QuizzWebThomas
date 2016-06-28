@@ -23,7 +23,8 @@ import quizz.service.QuizzService;
  */
 @WebServlet(name = "QuestionCreerServlet", urlPatterns = {"/question_creer"})
 public class QuestionCreerServlet extends HttpServlet {
-
+    
+    @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher("question_creer.jsp").forward(req, resp);
     }
@@ -69,6 +70,6 @@ public class QuestionCreerServlet extends HttpServlet {
         
         new QuestionService().ajouterQuestion(questAAjouter);
         
-        resp.sendRedirect("liste_questions");
+        resp.sendRedirect("details_quizz");
      }
 }

@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Liste des quizzes disponibles</title>
+        <title>Liste des questions du questionnaire ${quizzid}</title>
         <c:import url="_STYLESHEET.jsp" />
 
 
@@ -25,6 +25,7 @@
             <c:import url="_MENU.jsp" />
         </div>
         <div class="contenu">
+            <h1>Liste des questions du questionnaire ${quizzid}</h1>
             <table>
                 <c:forEach items="${questionsDuQuizz}" var="quizquest">
                     <tr>
@@ -33,13 +34,16 @@
                         </td>
                     </tr>
                 </c:forEach>
-                    <tr>
-                        <td>
+                <tr>
+                    <td>
+                        <c:if test="${role=='admin'}">
                             <h2>
                                 <a href="question_creer">Ajouter une question</a>
                             </h2>
-                        </td>
-                    </tr>
+                        </c:if>
+
+                    </td>
+                </tr>
             </table>
         </div>
         <div class="pied">

@@ -36,5 +36,16 @@ public class QuestionDAO {
         
         em.getTransaction().commit();
     }
+
+    
+    public Integer recupererNbQuestionsParIdQuizz(Integer id, Integer ordre) {
+        
+        EntityManager em = Persistence.createEntityManagerFactory("QuizzWebPU").createEntityManager();
+        
+        return (Integer) em.createQuery("SELECT COUNT (q) FROM Question q WHERE q.quizz.id=:quizznum AND q.ordre >:ordreDerQ BY q.ordre")
+                .setParameter("quizznum", id)
+                .setParameter("ordreDerQ", ordre)
+                .getSingleResult();
+    }
     
 }

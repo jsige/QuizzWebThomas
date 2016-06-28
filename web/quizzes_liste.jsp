@@ -16,6 +16,7 @@
 
     </head>
     <body>
+        
         <a href="films_liste">
             <div class="titre">
                 <c:import url="_TITRE.jsp" />
@@ -25,18 +26,21 @@
             <c:import url="_MENU.jsp" />
         </div>
         <div class="contenu">
+            <h1>Liste des quizzes disponibles</h1>
             <table>
                 <c:forEach items="${quizzes}" var="quizz">
                     <tr>
                         <td>
-                            <h3><a href="details_quizz?id_quizz=${quizz.id}">${quizz.titre}</a></h3>
+                            <h3><a href="set_quizz?id_quizz=${quizz.id}">${quizz.titre}</a></h3>
                         </td>
                     </tr>
                 </c:forEach>
                     <tr>
                         <td>
                             <h2>
-                                <a href="quizz_creer">Ajouter un nouveau quizz</a>
+                                <c:if test="${role=='admin'}">
+                                    <a href="quizz_creer">Ajouter un nouveau quizz</a>
+                                </c:if>
                             </h2>
                         </td>
                     </tr>
