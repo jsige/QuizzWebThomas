@@ -26,17 +26,17 @@
         </div>
         <div class="contenu">
             <h1>Quizz n° ${quizzid}</h1>
-            <h1>Nom du quizz : </h1>
-            <h2>Question n° - (nb/nbTotal)</h2>
+            <h1>Nom du quizz : ${titreQuizz}</h1>
+            <h2>Question n° - (${nbQuestRep} / ${tailleQuizz})</h2>
             <h3>Score : ${score}</h3>
             <br />
             <br />
-            <h3>Intitulé : </h3>
+            <h3>Intitulé : ${qsuiv.titre}</h3>
             <form method="post">
-            <h4>R1 : <input type="radio" name="repchoisie" value="1" ></h4>
-            <h4>R2 : <input type="radio" name="repchoisie" value="2" ></h4>
-            <h4>R3 : <input type="radio" name="repchoisie" value="3" ></h4>
-            <h4>R4 : <input type="radio" name="repchoisie" value="4" ></h4>
+            <h4>R1 : ${qsuiv.rep1}<input type="radio" name="repchoisie" value="1" ></h4>
+            <h4>R2 : ${qsuiv.rep2}<input type="radio" name="repchoisie" value="2" ></h4>
+            <h4>R3 : ${qsuiv.rep3}<input type="radio" name="repchoisie" value="3" ></h4>
+            <h4>R4 : ${qsuiv.rep4}<input type="radio" name="repchoisie" value="4" ></h4>
             <br />
             <br />
             <input type="submit" value="Question suivante" />

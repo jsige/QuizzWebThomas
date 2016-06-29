@@ -31,6 +31,7 @@ public class QuizzIdSetServlet extends HttpServlet {
         else{
             req.getSession().setAttribute("ordreSessionAct", 0);
             req.getSession().setAttribute("score",0);
+            req.getSession().setAttribute("nbQuestRep",1);
             resp.sendRedirect("questionSuivante");
         }
     }

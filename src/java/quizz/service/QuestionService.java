@@ -5,6 +5,7 @@
  */
 package quizz.service;
 
+import java.util.Iterator;
 import java.util.List;
 import quizz.dao.QuestionDAO;
 import quizz.entity.Question;
@@ -30,11 +31,32 @@ public class QuestionService {
         
     }
 
-    public void questionSuivante(Integer id, Integer ordre) {
+    public Question questionSuivante(Long idQuizz, Integer ordre, Integer score, Byte repChoisie, Integer nbQuestRep) {
         QuestionDAO dao = new QuestionDAO();
-        Integer nbQuestionQuizz = dao.recupererNbQuestionsParIdQuizz(id, ordre);
-        System.out.println("" + nbQuestionQuizz);
+        
+        Long nbQuestTotalQuizz = dao.recupererNbQuestionsSurOrdre(idQuizz, ordre);
+        System.out.println("====================>>>>>" + nbQuestTotalQuizz);
+        
+        // si nb Questions vide alors Exception
+        if(nbQuestTotalQuizz==0){
+            throw new RuntimeException(); //(Quizz vide!!)
+        }
+        
+        Byte bonneRep = dao.rechercherParIdQuizzEtIdQuestion(idQuizz,)
+        if(repChoisie!=null){
+            if(repChoisie==questionSuiv.)
+        }
+        List<Question> questionQuizz = dao.recupererQuestionsParIdQuizzEtOrdre(idQuizz, ordre);
+        
+        Question questionSuiv = questionQuizz.get(0);
+        
+        
+        //Iterator qIt = new questionQuizz.iterator();
+        return questionSuiv;
+        
+        
     }
+
     
     
     

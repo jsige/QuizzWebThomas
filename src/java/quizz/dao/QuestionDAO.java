@@ -38,14 +38,33 @@ public class QuestionDAO {
     }
 
     
-    public Integer recupererNbQuestionsParIdQuizz(Integer id, Integer ordre) {
+    public List<Question> recupererQuestionsParIdQuizzEtOrdre(Long id, Integer ordre) {
         
         EntityManager em = Persistence.createEntityManagerFactory("QuizzWebPU").createEntityManager();
         
-        return (Integer) em.createQuery("SELECT COUNT (q) FROM Question q WHERE q.quizz.id=:quizznum AND q.ordre >:ordreDerQ BY q.ordre")
+              
+        return em.createQuery("SELECT q FROM Question q WHERE q.quizz.id=:quizznum AND q.ordre >:ordreDerQ ORDER BY q.ordre")
+                .setParameter("quizznum", id)
+                .setParameter("ordreDerQ", ordre)
+                .getResultList();
+    }
+
+    public Long recupererNbQuestionsSurOrdre(Long id, Integer ordre) {
+        EntityManager em = Persistence.createEntityManagerFactory("QuizzWebPU").createEntityManager();
+        return (Long) em.createQuery("SELECT COUNT (q) FROM Question q WHERE q.quizz.id=:quizznum AND q.ordre >:ordreDerQ")
                 .setParameter("quizznum", id)
                 .setParameter("ordreDerQ", ordre)
                 .getSingleResult();
+    }
+    
+    public List<Question> rechercherParIdQuizzEtIdQuestion(Long idQuizz) {
+        
+        EntityManager em = Persistence.createEntityManagerFactory("QuizzWebPU").createEntityManager();
+        
+        
+        return em.createQuery("SELECT q FROM Question q WHERE q.quizz.id=:quizznum ORDER BY q.ordre").setParameter("quizznum", idQuizz).getResultList();
+        
+        //return em.createQuery("SELECT q FROM Question q").getResultList();
     }
     
 }
